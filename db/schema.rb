@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006014343) do
+ActiveRecord::Schema.define(version: 20161006024809) do
 
   create_table "auditoria", force: :cascade do |t|
     t.text     "name"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 20161006014343) do
   end
 
   add_index "auditoria", ["theater_id"], name: "index_auditoria_on_theater_id"
+
+  create_table "auditoriums_in_theater", id: false, force: :cascade do |t|
+    t.integer "theater_id"
+    t.integer "auditorium_id"
+  end
 
   create_table "theaters", force: :cascade do |t|
     t.text     "name"

@@ -5,7 +5,7 @@ RSpec.describe Theater, type: :model do
   let (:nameonly) { Auditorium.new(name: "Theater one")}
   let (:capacityonly) { Auditorium.new(capacity: 80) }
   let (:defaultTheater) { Theater.new(name: "Default") }
-  let (:validtauditorium) { Auditorium.new(name: "Theater one", capacity: 80, theater: defaultTheater) }
+  let (:validtauditorium) { Auditorium.new(name: "Theater one", capacity: 80) }
   describe "create new auditorium" do 
     it "should not create a blank auditorium" do 
       expect(blankauditorium.save).to be(false) 
@@ -18,6 +18,10 @@ RSpec.describe Theater, type: :model do
     end
     it "should create valid auditorium" do 
       expect(validtauditorium.save).to be(true) 
+    end
+    it "should not create duplicates" do 
+      duplicate = Auditorium.new(name: "Theater one", capacity: 100)
+      expect(duplicate.save && validtauditorium.save).to eq(false) 
     end
   end
 end
