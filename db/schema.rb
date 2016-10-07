@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006024809) do
+ActiveRecord::Schema.define(version: 20161007002442) do
 
   create_table "auditoria", force: :cascade do |t|
     t.text     "name"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20161006024809) do
     t.integer "theater_id"
     t.integer "auditorium_id"
   end
+
+  create_table "movies", force: :cascade do |t|
+    t.string   "movie_name"
+    t.integer  "length"
+    t.integer  "auditorium_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.datetime "showtime"
+  end
+
+  add_index "movies", ["auditorium_id"], name: "index_movies_on_auditorium_id"
 
   create_table "theaters", force: :cascade do |t|
     t.text     "name"
