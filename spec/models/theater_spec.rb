@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Theater, type: :model do
   let (:blanktheater) { Theater.new }
   let (:validtheater) { Theater.new(name: "Regal Theater") }
-  describe "create new theater" do 
+  describe "#save" do 
     it "should note create theater without a name" do 
       expect(blanktheater.save).to be(false) 
     end
@@ -15,7 +15,7 @@ RSpec.describe Theater, type: :model do
       expect(validtheater.save && duplicate.save).to be(false) 
     end
   end
-  describe "it should have multiple auditoriums" do
+  describe "#uniqueness" do
     let (:theater) { Theater.new(name:"test") }
     it "should have 2 auditoria" do 
       theater.save

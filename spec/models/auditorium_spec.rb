@@ -1,12 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Theater, type: :model do
+RSpec.describe Auditorium, type: :model do
   let (:blankauditorium) { Auditorium.new }
-  let (:nameonly) { Auditorium.new(name: "Theater one")}
+  let (:nameonly) { Auditorium.new(name: "Auditorium one")}
   let (:capacityonly) { Auditorium.new(capacity: 80) }
-  let (:defaultTheater) { Theater.new(name: "Default") }
-  let (:validtauditorium) { Auditorium.new(name: "Theater one", capacity: 80) }
-  describe "create new auditorium" do 
+  let (:validtauditorium) { Auditorium.new(name: "Auditorium One", capacity: 80) }
+  describe "#save" do 
     it "should not create a blank auditorium" do 
       expect(blankauditorium.save).to be(false) 
     end
@@ -20,7 +19,7 @@ RSpec.describe Theater, type: :model do
       expect(validtauditorium.save).to be(true) 
     end
     it "should not create duplicates" do 
-      duplicate = Auditorium.new(name: "Theater one", capacity: 100)
+      duplicate = Auditorium.new(name: "Auditorium One", capacity: 100)
       expect(duplicate.save && validtauditorium.save).to eq(false) 
     end
   end

@@ -41,6 +41,8 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.5'
   gem 'timecop'
+  gem 'guard'
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

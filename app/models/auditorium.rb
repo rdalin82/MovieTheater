@@ -3,4 +3,5 @@ class Auditorium < ActiveRecord::Base
   has_many :movies 
   validates :name, uniqueness: true , presence: true
   validates :capacity, presence: true
+
 end
