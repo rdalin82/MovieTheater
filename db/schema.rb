@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007002442) do
+ActiveRecord::Schema.define(version: 20161008211440) do
 
   create_table "auditoria", force: :cascade do |t|
     t.text     "name"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20161007002442) do
     t.integer "theater_id"
     t.integer "auditorium_id"
   end
+
+  create_table "creditcards", force: :cascade do |t|
+    t.string   "number"
+    t.datetime "expiration_date"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "creditcards", ["user_id"], name: "index_creditcards_on_user_id"
 
   create_table "movies", force: :cascade do |t|
     t.string   "movie_name"
@@ -44,5 +54,23 @@ ActiveRecord::Schema.define(version: 20161007002442) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer  "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tickets", ["movie_id"], name: "index_tickets_on_movie_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "ticket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "users", ["ticket_id"], name: "index_users_on_ticket_id"
 
 end
