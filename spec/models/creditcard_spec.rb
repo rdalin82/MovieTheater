@@ -21,6 +21,7 @@ RSpec.describe Creditcard, type: :model do
     end
     it "should save a valid card" do 
       expect(card3.save).to be(true)
+      expect(card3.valid?).to be(true)
       expect(card4.save).to be(true)
       expect(card5.save).to be(true) 
       expect(card6.save).to be(true)

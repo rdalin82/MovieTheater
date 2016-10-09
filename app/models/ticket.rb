@@ -1,11 +1,11 @@
 class Ticket < ActiveRecord::Base
   belongs_to :movie
-  has_one :user 
+  belongs_to :user  
   validates :movie, :user, presence: true 
   validate :valid_sale
 
   private 
-  
+
   def valid_sale
     seats_available?
     movie_upcoming?

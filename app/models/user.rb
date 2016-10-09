@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  belongs_to :ticket
-  has_many :creditcards
+  has_many :tickets
+  has_one :creditcard
   validates :name, :email, presence: true
   validate :valid_email
 
