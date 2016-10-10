@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <div class="container">
+      <h1>Enter in your information</h1>
+    </div>
+</div>
+<div class="container">
+  <%= form_for @user, url: {action: "create"}, html: {class: 'input-group'} do |f| %>
+    Name: <%= f.text_field :name %> <br>
+    Email: <%= f.text_field :email %><br>
+    
+    <%= fields_for @creditcard do |c|  %> <br>
+      Number: <%= c.text_field :number %><br>
+      Expiration Date: <br>
+      Month: <%= select_month nil, {add_month_numbers: true}, {name: 'creditcard[month]', id: "card_month", class: "btn btn-default btn-sm responsive-width"} %>
+      Year: <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: 'creditcard[year]', id: "card_year", class: "btn btn-default btn-sm responsive-width" } %>
+     <br>
+      <% end %> 
+    <%= f.submit "Purchase", {:class=>"btn btn-md btn-info  responsive-width"}%> 
+    <% end %> 
+</div>

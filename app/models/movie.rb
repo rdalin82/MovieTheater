@@ -19,6 +19,10 @@ class Movie < ActiveRecord::Base
   def end_time
     showtime+length.minutes
   end
+  def sold_out? 
+    auditorium.capacity <= tickets.count 
+  end
+
   private 
   def check_start_time(movie)
     showtime.between?(movie.showtime, movie.end_time) || movie.showtime.between?(showtime, end_time)

@@ -8,13 +8,11 @@ RSpec.describe "creating theater, auditorium, movies", type: :model do
     Timecop.return
   end 
 
-  let (:theater) { Theater.create(name: "Test Theater") }
-
-  let (:auditorium1) {theater.auditoria.create(name: "auditorium one", capacity: 80)}
-  let (:auditorium2) {theater.auditoria.create(name: "auditorium two", capacity: 60)}
-  let (:auditorium3) {theater.auditoria.create(name: "auditorium three", capacity: 40)}
-  let (:auditorium4) {theater.auditoria.create(name: "auditorium one", capacity: 100)}
-  let (:auditorium5) {theater.auditoria.create(name: "auditorium one", capacity: 120)}
+  let (:auditorium1) {Auditorium.create(name: "auditorium one", capacity: 80)}
+  let (:auditorium2) {Auditorium.create(name: "auditorium two", capacity: 60)}
+  let (:auditorium3) {Auditorium.create(name: "auditorium three", capacity: 40)}
+  let (:auditorium4) {Auditorium.create(name: "auditorium one", capacity: 100)}
+  let (:auditorium5) {Auditorium.create(name: "auditorium one", capacity: 120)}
 
   it "Should have movies that belong to an auditorium" do 
     movie1 = auditorium1.movies.create!(movie_name: "Test Movie" , showtime: DateTime.new(2016, 10, 6, 17, 00), length: 120 )
@@ -33,7 +31,7 @@ RSpec.describe "creating theater, auditorium, movies", type: :model do
 
   
   describe "#auditorium_available?" do
-    let (:auditorium) { theater.auditoria.create(name: "Test auditorium", capacity: 20) }
+    let (:auditorium) { Auditorium.create(name: "Test auditorium", capacity: 20) }
 
     it "Should not have 2 movies playing in the same auditorium" do 
       movie1 = auditorium.movies.create!(movie_name: "Test Movie", showtime: DateTime.new(2016, 10, 7, 12, 00), length: 120)

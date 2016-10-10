@@ -11,21 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161009173240) do
+ActiveRecord::Schema.define(version: 20161010162927) do
 
   create_table "auditoria", force: :cascade do |t|
     t.text     "name"
     t.integer  "capacity"
-    t.integer  "theater_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  add_index "auditoria", ["theater_id"], name: "index_auditoria_on_theater_id"
-
-  create_table "auditoriums_in_theater", id: false, force: :cascade do |t|
-    t.integer "theater_id"
-    t.integer "auditorium_id"
   end
 
   create_table "creditcards", force: :cascade do |t|
@@ -48,12 +40,6 @@ ActiveRecord::Schema.define(version: 20161009173240) do
   end
 
   add_index "movies", ["auditorium_id"], name: "index_movies_on_auditorium_id"
-
-  create_table "theaters", force: :cascade do |t|
-    t.text     "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "tickets", force: :cascade do |t|
     t.integer  "movie_id"

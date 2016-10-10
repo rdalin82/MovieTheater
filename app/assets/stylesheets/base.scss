@@ -1,0 +1,13 @@
+a { color: white;}
+
+@media screen and (max-device-width:320px) {
+    body{font-size: 4em}
+    .responsive-width { font-size: 4vw; font-weight: bold; }
+
+}
+
+@media screen and (max-device-width:800px) {
+    body{font-size: 4em;}
+    .responsive-width { font-size: 4vw; font-weight: bold; }
+
+}

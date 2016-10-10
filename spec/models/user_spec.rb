@@ -17,4 +17,20 @@ RSpec.describe User, type: :model do
       expect(bademail2.save).to be(false)
     end
   end
+  describe "update credit card" do 
+    before do 
+      Timecop.freeze(DateTime.new(2016, 10, 5, 13, 00))
+    end
+    after do 
+      Timecop.return
+    end
+    let (:creditcard1) { Creditcard.new(number: "4444555566667777", expiration_date: DateTime.new(2017, 10) ) }
+    let (:creditcard2) { Creditcard.new(number: "4444555566667777", expiration_date: DateTime.new(2018, 10) ) }
+    it "should allow a user to update credit card" do 
+      user.creditcard = creditcard1
+      expect(user.creditcard).to eq(creditcard1)
+      user.creditcard = creditcard2
+      expect(user.creditcard).to eq(creditcard2)
+    end
+  end
 end

@@ -1,0 +1,29 @@
+<div class="jumbotron">
+  <div class="container">
+      <h1>Upcoming Movies</h1>
+    </div>
+</div>
+<div class="container-fluid">
+  <% @movies.each do |movie| %>
+    <ul class="list-group">
+    <% if movie.upcoming? %>
+      <li class="list-group-item">
+        Title: <%= movie.movie_name %> | On:  Date: <%= movie.movie_date %>
+      </li> 
+      <li class="list-group-item">
+        Start: <%= movie.movie_time %> | End: <%= movie.movie_end_time %>
+      </li>
+      <li class="list-group-item">
+        Auditorium: <%= movie.auditorium.name %> 
+      </li> 
+      <li class="list-group-item">
+        <% if movie.sold_out? %> 
+           <button class="btn btn-danger btn-md responsive-width">Sold Out</button>
+        <% else %>
+          <button class="btn btn-success btn-md responsive-width"><a href="purchase/movies/<%=movie.id%>/tickets/new">Purchase Now</a></button>
+        <% end %>
+      </li> 
+    </ul> 
+    <% end %> 
+  <% end %> 
+</div>

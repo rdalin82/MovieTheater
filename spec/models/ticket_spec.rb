@@ -7,8 +7,7 @@ RSpec.describe Ticket, type: :model do
   after do 
     Timecop.return
   end
-  let(:theater) { Theater.new(name: "test theater")}
-  let(:auditorium) {theater.auditoria.new(name: "test auditorium one", capacity: 5) }
+  let(:auditorium) {Auditorium.new(name: "test auditorium one", capacity: 5) }
   let(:movie) { auditorium.movies.new(movie_name: "Test movie", showtime: DateTime.new(2016, 10, 6, 12, 00), length: 120) }
   let(:latemovie) { auditorium.movies.new(movie_name: "Test movie", showtime: DateTime.new(2016, 10, 5, 12, 00), length: 120) }
   describe "#save" do 

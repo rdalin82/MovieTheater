@@ -1,0 +1,15 @@
+<h1>Auditoriums for <%= @theater.name%></h1>
+
+<h2>Movies grouped by Auditorium</h2>
+  <% @auditoria.each do |aud| %> 
+    <div><%= aud.name %> </div>
+    <div><%= aud.capacity %></div>
+    
+    <% aud.movies.each do |movie| %> 
+      <div><%= movie.movie_name %></div>
+      <div>Start Time: <%= movie.movie_time %> </div>
+      <div>End Time: <%= movie.movie_end_time %> </div> 
+      <br>
+    <% end %> 
+    <br>
+  <% end %> 
