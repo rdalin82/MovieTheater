@@ -27,6 +27,9 @@ class MovieController < ApplicationController
   def update
   end
   def destroy
+    Movie.find(params[:id]).destroy
+    flash[:success] = ["Movie deleted"]
+    redirect_to ("/auditoriums/#{params[:auditorium_id]}/movies")
   end
 
   def showtimes

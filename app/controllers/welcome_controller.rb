@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @titles = Movie.pluck(:movie_name).uniq
+    @movies = Movie.where('showtime > ?', DateTime.now).pluck(:movie_name)
+    @titles = @movies.uniq
   end
 end
