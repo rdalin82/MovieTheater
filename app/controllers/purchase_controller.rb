@@ -9,9 +9,16 @@ class PurchaseController < ApplicationController
       number: params[:creditcard][:number], 
       expiration_date: DateTime.new(params[:creditcard][:year].to_i, params[:creditcard][:month].to_i)
     )
+    @movie = Movie.find(params[:id])
     if @user.save && @card.save 
-      flash[:success] = ["Ticket purchase successful for #{Movie.find(params[:id]).movie_name}"]
-      redirect_to root_path
+      @user.creditcard = @card
+      ticket = @movie.tickets.new(user: @user)
+      if ticket.save 
+        flash[:success] = ["Ticket purchase successful for #{Movie.find(params[:id]).movie_name}"]
+        redirect_to root_path
+      else 
+        flash[:warning] = ticket.errors.full_messages.to_sentence
+      end
     else 
       errors = []
       errors << @user.errors.full_messages.to_sentence unless @user.errors.nil?

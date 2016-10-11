@@ -1,0 +1,26 @@
+<div class="jumbotron">
+  <div class="container-fluid">
+      <h1>Movies</h1>
+    </div>
+</div>
+<div class="container-fluid">
+  <a href="/auditoriums/<%=params[:auditorium_id]%>/movies/new"><button class="btn btn-info btn-md responsive-width">Create a new movie</button></a>
+  <% @movies.each do |movie| %>
+    <ul class="list-group">
+    <% if movie.upcoming? %>
+      <li class="list-group-item">
+        Title: <%= movie.movie_name %> | On:  Date: <%= movie.movie_date %>
+      </li> 
+      <li class="list-group-item">
+        Start: <%= movie.movie_time %> | End: <%= movie.movie_end_time %>
+      </li>
+      <li class="list-group-item">
+        Auditorium: <%= movie.auditorium.name %> 
+      </li> 
+      <li class="list-group-item">
+        
+      </li> 
+    </ul> 
+    <% end %> 
+  <% end %> 
+</div>

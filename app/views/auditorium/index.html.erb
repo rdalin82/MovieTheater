@@ -1,15 +1,17 @@
-<h1>Auditoriums for <%= @theater.name%></h1>
-
-<h2>Movies grouped by Auditorium</h2>
+<div class="jumbotron">
+  <div class="container-fluid">
+    <h1>Auditoriums</h1>
+  </div>
+</div>
+<div class="container-fluid">
+  <h2>Movies grouped by Auditorium</h2>
+  <ul class="list-group"></ul>
   <% @auditoria.each do |aud| %> 
-    <div><%= aud.name %> </div>
-    <div><%= aud.capacity %></div>
-    
-    <% aud.movies.each do |movie| %> 
-      <div><%= movie.movie_name %></div>
-      <div>Start Time: <%= movie.movie_time %> </div>
-      <div>End Time: <%= movie.movie_end_time %> </div> 
-      <br>
-    <% end %> 
-    <br>
-  <% end %> 
+    <li class="list-group-item">Name: <%= aud.name %> </li>
+    <li class="list-group-item">Capacity: <%= aud.capacity %></li>
+    <li class="list-group-item"><a href="/auditoriums/<%=aud.id%>/movies">View Movies</a></li>
+    <li class="list-group-item"></li>
+     <% end %> 
+  </ul>
+ 
+</div>

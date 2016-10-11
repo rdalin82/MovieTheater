@@ -15,6 +15,10 @@
       Year: <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: 'creditcard[year]', id: "card_year", class: "btn btn-default btn-sm responsive-width" } %>
      <br>
       <% end %> 
-    <%= f.submit "Purchase", {:class=>"btn btn-md btn-info  responsive-width"}%> 
+      <div class="btn-group">
+        <%= f.submit "Purchase", {:class=>"btn btn-md btn-info  responsive-width"}%> 
+        <a href="/"><button class="btn btn-md btn-danger responsive-width">Back</button></a>
+      </div>
     <% end %> 
+
 </div>

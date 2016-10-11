@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <div class="container-fluid">
+    <h1>Tickets</h1>
+  </div>
+</div>
+<div class="container-fluid">
+  <% @movies.each do |movie| %> 
+    <ul class="list-group">
+      <li class="list-group-item">
+        Movie: <%= movie.movie_name %> | Date: <%= movie.movie_date %> | Time: <%= movie.movie_time %> | Auditorium: <%= movie.auditorium.name %> 
+      </li>
+      <li class="list-group-item">
+        Tickets Sold: <%= movie.tickets.count %> 
+      </li>
+      <% if !movie.tickets.empty? %> 
+        <% movie.tickets.each do |ticket| %> 
+          <% if ticket.persisted? %> 
+            
+            <li class="list-group-item">
+              Order: <%= ticket.user.name %> | <%= ticket.user.email %>  | Ticket id: <%= ticket.id %> 
+            </li>
+          <% end %> 
+        <% end %> 
+      <% end %> 
+    </ul>
+    <% end %> 
+</div>

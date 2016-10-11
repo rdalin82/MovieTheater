@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
-  get 'auditoriums' => 'auditorium#index'
-  get 'purchase/movies/:id/tickets/new' => 'purchase#new'
-  post 'purchase/movies/:id/tickets/create' => 'purchase#create'
+  root  'welcome#index'
+  get   'tickets'                                                            => 'ticket#index'
+  get   'auditoriums'                                                        => 'auditorium#index'
+  get   'auditoriums/:auditorium_id/movies'                                  => 'movie#index'
+  get   'auditoriums/:auditorium_id/movies/new'                              => 'movie#new'
+  get   'auditoriums/:auditorium_id/movie/show/:id'                          => 'movie#show'
+  post  'auditoriums/:auditorium_id/movie/create'                            => 'movie#create'
+  put   'auditoriums/:auditorium_id/movie/update/:id'                        => 'movie#update'
+  post  'auditoriums/:auditorium_id/movie/destroy/:id'                       => 'movie#destory'
+  get   'movies/:movie_name/showtimes'                                       => 'movie#showtimes'
+
+  get   'purchase/movies/:id/tickets/new'                                    => 'purchase#new'
+  post  'purchase/movies/:id/tickets/create'                                 => 'purchase#create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
