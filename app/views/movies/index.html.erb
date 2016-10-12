@@ -18,7 +18,6 @@
         Auditorium: <%= movie.auditorium.name %> 
       </li> 
       <li class="list-group-item">
-        <%= link_to "Edit", "/auditoriums/#{params[:auditorium_id]}/movies/show/#{movie.id}" %>
         <%= link_to "Delete", "/auditoriums/#{params[:auditorium_id]}/movies/destroy/#{movie.id}" %>
       </li>  
     </ul> 
