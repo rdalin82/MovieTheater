@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome to MovieTheater, <%= @user.name %></h1>
+    <p>
+      You have successfully purchased a ticket for <%=@user.tickets.last.movie.movie_name%>, your ticket id is: <%=@user.tickets.last.id%>
+   <br>
+   <h3>Movie Details</h3>
+    </p>
+    <p>Movie Name: <%=@user.tickets.last.movie.movie_name%></p>
+    <p>Movie Time: <%=@user.tickets.last.movie.movie_time%></p>
+    <p>Movie Date: <%=@user.tickets.last.movie.movie_date%></p>
+    <p>Auditorium #:<%=@user.tickets.last.movie.auditorium.name%></p>
+
+    Thank you for your purchase! 
+
+    
+  </body>
+</html>

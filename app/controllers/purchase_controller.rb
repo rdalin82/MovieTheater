@@ -14,6 +14,8 @@ class PurchaseController < ApplicationController
       @user.creditcard = @card
       ticket = @movie.tickets.new(user: @user)
       if ticket.save 
+        @user.tickets << ticket 
+        UserMailer.purchase_email(@user).deliver_now
         flash[:success] = ["Ticket purchase successful for #{Movie.find(params[:id]).movie_name}"]
         redirect_to root_path
       else 

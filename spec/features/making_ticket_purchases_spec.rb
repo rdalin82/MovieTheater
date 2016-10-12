@@ -19,6 +19,7 @@ describe "making purchases" do
       select "2 - February", from: "card_month" 
       select "2018", from: "card_year" 
     end
+    
     click_button "Purchase" 
     expect(page).to have_content("successful")
   end
