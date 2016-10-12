@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-
+ruby "2.2.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
+
 gem 'faker'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -33,6 +33,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 
 # Use Capistrano for deployment
+
+gem 'rails_12factor', group: :production
 # gem 'capistrano-rails', group: :development
 group :development do 
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -47,6 +49,7 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
   gem 'capybara'
+  gem 'sqlite3'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
