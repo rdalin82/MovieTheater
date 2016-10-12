@@ -1,0 +1,12 @@
+<div class="jumbotron">
+  <div class="container-fluid">
+    <h1>New Auditorium</h1>
+  </div>
+</div>
+<div class="container-fluid">
+  <%= form_for @auditorium, url: {action: "create"}, html: {class: "input-group"} do |f| %> 
+    Auditorium name: <%= f.text_field :name %> <br>
+    Capacity: <%= f.text_field :capacity %> <br>
+    <%= f.submit "Submit" , {:class=> "btn btn-md btn-info responsive-width"} %> 
+    <% end %> 
+</div>

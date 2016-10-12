@@ -1,0 +1,6 @@
+<%= form_for(auditorium) do |f| %> 
+  Name: <%= f.text_field :name %> <br>
+  Capacity: <%= f.text_field :capacity %> <br>
+
+  <%= f.submit "Submit", {:class=>"btn btn-md btn-info  responsive-width"}%> 
+ <% end %> 

@@ -1,0 +1,7 @@
+<%= form_for(movie) do |f| %> 
+  Movie Name: <%= f.text_field :movie_name %> <br>
+    Showtime: <%= f.datetime_local_field :showtime %> <br>
+    Minutes: <%= f.text_field :length %> <br>
+
+  <%= f.submit "Submit", {:class=>"btn btn-md btn-info  responsive-width"}%> 
+ <% end %> 

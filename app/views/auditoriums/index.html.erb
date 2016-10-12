@@ -5,12 +5,18 @@
 </div>
 <div class="container-fluid">
   <h2>Movies grouped by Auditorium</h2>
+  <a href="/auditoriums/new">
+    <button class="btn btn-info btn-md responsive-width">Create a new Auditorium</button>
+  </a>
   <ul class="list-group"></ul>
   <% @auditoria.each do |aud| %> 
     <li class="list-group-item">Name: <%= aud.name %> </li>
     <li class="list-group-item">Capacity: <%= aud.capacity %></li>
     <li class="list-group-item"><a href="/auditoriums/<%=aud.id%>/movies">View Movies</a></li>
-    <li class="list-group-item"></li>
+    <li class="list-group-item">
+      <%= link_to "Edit",  edit_auditorium_path(aud) %>
+      <%= link_to "Remove", aud, method: :delete, data: { confirm: "Are you sure?" } %> 
+    </li>
      <% end %> 
   </ul>
  

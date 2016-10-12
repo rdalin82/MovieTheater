@@ -8,6 +8,19 @@ class MoviesController < ApplicationController
   def show 
     @movie = Movie.find(params[:id])
   end
+  def edit 
+    @movie = Movie.find(params[:id])
+  end
+  def update
+    @movie = Movie.find(params[:id])
+    if @movie.update(movie_params)
+      flash[:success] = ["update successful"]
+      redirect_to("/auditoriums/#{params[:auditorium_id]}/movies")
+    else 
+      flash[:warning] = @movie.errors.full_messages.to_sentence
+      render "edit" 
+    end
+  end
   def create
     @auditorium = Auditorium.find(params[:auditorium_id])
     @movie = @auditorium.movies.new(
@@ -24,8 +37,7 @@ class MoviesController < ApplicationController
       redirect_to ("/auditoriums/#{params[:auditorium_id]}/movies/new")
     end
   end
-  def update
-  end
+  
   def destroy
     Movie.find(params[:id]).destroy
     flash[:success] = ["Movie deleted"]
