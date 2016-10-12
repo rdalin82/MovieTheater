@@ -1,4 +1,3 @@
-config_hash = YAML::load_file("#{Rails.root}/config/config.yml")
 Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
