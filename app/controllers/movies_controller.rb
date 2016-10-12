@@ -1,4 +1,4 @@
-class MovieController < ApplicationController
+class MoviesController < ApplicationController
   def index 
     @movies = Movie.where(auditorium_id: params[:auditorium_id])
   end

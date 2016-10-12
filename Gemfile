@@ -46,6 +46,7 @@ group :development, :test do
   gem 'timecop'
   gem 'guard'
   gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
+  gem 'capybara'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

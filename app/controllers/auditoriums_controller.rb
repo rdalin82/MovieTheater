@@ -1,4 +1,4 @@
-class AuditoriumController < ApplicationController
+class AuditoriumsController < ApplicationController
   def index 
     @auditoria = Auditorium.all
   end
