@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get   'purchase/movies/:id/tickets/new'                                    => 'purchase#new'
   post  'purchase/movies/:id/tickets/create'                                 => 'purchase#create'
 
-  resources :auditoriums,  only: [:index, :edit, :create, :update, :destroy] do
+  resources :auditoriums,  only: [:index, :new, :edit, :create, :update, :destroy] do
     resources :movies
   end
 
