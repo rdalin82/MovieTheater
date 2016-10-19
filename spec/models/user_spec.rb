@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   let (:blankuser) { User.new }
   let (:user) {User.new(name: "John Smith", email: "Johnsmith@gmail.com") }
+  let (:userUpperCaseEmail) {User.new(name: "John Smith", email: "Johnsmith@Gmail.com") }
   let (:bademail1) { User.new(name: "John Smith", email: "Johnsmith@") }
   let (:bademail2) { User.new(name: "John Smith", email: "@gmail.com") }
   describe "#save" do 
@@ -11,6 +12,9 @@ RSpec.describe User, type: :model do
     end
     it "should save a valid user" do 
       expect(user.save).to be(true)
+    end
+    it "should save a valid user with email upperecase" do 
+      expect(userUpperCaseEmail.save).to be(true)
     end
     it "should not save with a bad email" do 
       expect(bademail1.save).to be(false)

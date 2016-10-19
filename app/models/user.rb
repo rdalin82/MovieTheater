@@ -3,8 +3,12 @@ class User < ActiveRecord::Base
   has_one :creditcard
   validates :name, :email, presence: true
   validate :valid_email
+  before_validation :downcase_email
 
   private 
+  def downcase_email
+    self.email.downcase! unless email.nil?
+  end
 
   def valid_email
     return false if email.nil?

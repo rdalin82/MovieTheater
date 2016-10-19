@@ -25,6 +25,7 @@ When purchasing tickets, the user enters name, email, and credit card informatio
 2. ``` echo password: YOUR_PASSWORD >> config.yml && echo email: YOUR_EMAIL >> config.yml ```
 3. ``` rake db:migrate ```
 4. ``` rake db:seed ```
+5. ``` rails s ```
 
 ## Run tests
 
