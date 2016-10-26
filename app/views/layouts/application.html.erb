@@ -17,7 +17,7 @@
 <div class="cointainer-fluid">
   <% flash.each do |key, value| %> 
       <div class="alert alert-<%= key %>">
-        <small><%=value %></small>
+        <small><%=value.join(" ") %></small>
       </div>
   <% end %> 
 </div>

@@ -28,6 +28,18 @@ RSpec.describe Movie, type: :model do
       expect(movie.movie_date).to eq("October 6, 2016")
     end
   end
+  describe "#update" do 
+    let (:movie) { Movie.create(movie_name: "Secret Life of Pets", showtime: DateTime.new(2016, 10, 6, 20, 30), length: 120)}
+    before do 
+      movie.auditorium = Auditorium.new(name: "test", capacity: 20)
+      movie.save
+    end
+
+    it "should update a movie" do
+      expect(movie.update(movie_name: "Secret Life of Pet", showtime: DateTime.new(2016, 10, 6, 20, 30), length: 120) ). to eq(true)
+    end
+  end
+
   describe "#upcoming?" do 
     let (:futuremovie) { Movie.new(movie_name: "Secret Life of Pets", showtime: DateTime.new(2016, 10, 6, 20, 30), length: 120)} 
     let (:pastmovie) { Movie.new(movie_name: "Toy Story", showtime: DateTime.new(1999, 10, 6, 20, 30), length: 120)}

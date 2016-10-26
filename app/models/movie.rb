@@ -22,6 +22,10 @@ class Movie < ActiveRecord::Base
   def sold_out? 
     auditorium.capacity <= tickets.count 
   end
+  def id_is 
+    self.id
+  end
+
 
   private 
   def check_start_time(movie)
@@ -32,7 +36,8 @@ class Movie < ActiveRecord::Base
   end
   def auditorium_available? 
     return false if auditorium.nil?
-    Movie.where(auditorium: auditorium).find { |x| x.persisted? && x != self && check_end_time(x) || check_start_time(x) } ? false : true
+    movies = Movie.where(auditorium: auditorium).where.not(id: id)
+    movies.find { |x| x.persisted? && check_end_time(x) || check_start_time(x) } ? false : true
   end
   def validate_auditorium_availability
     errors.add(:auditorium, 
