@@ -32,16 +32,16 @@ class Movie < ActiveRecord::Base
   end
   def auditorium_available? 
     return false if auditorium.nil?
-    Movie.where(auditorium: auditorium).find { |x| x.persisted? && check_end_time(x) || check_start_time(x) } ? false : true
+    Movie.where(auditorium: auditorium).find { |x| x.persisted? && x != self && check_end_time(x) || check_start_time(x) } ? false : true
   end
   def validate_auditorium_availability
-    errors.add(:auditorium,
-      message: "Auditorium is already booked"
+    errors.add(:auditorium, 
+      "Auditorium is already booked"
     ) unless auditorium_available?
   end
   def validate_upcoming_movie
     errors.add(:auditorium,
-     message: "It is too late to purchase tickets for this movie, please try a later time"
+      "It is too late to purchase tickets for this movie, please try a later time"
      ) unless upcoming? 
   end
 end
