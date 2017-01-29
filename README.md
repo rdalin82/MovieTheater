@@ -1,4 +1,4 @@
-Travis CI: [![Build Status](https://travis-ci.org/rdalin82/MovieTheater.svg?branch=master](https://travis-ci.org/rdalin82/MovieTheater.svg?branch=master)
+Travis CI: [![Build Status](https://travis-ci.org/rdalin82/MovieTheater.svg?branch=master)](https://travis-ci.org/rdalin82/MovieTheater.svg?branch=master)
 
 # Movie Theater 
 
