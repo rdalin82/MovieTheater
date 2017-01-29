@@ -1,5 +1,6 @@
 Travis CI: [![Build Status](https://travis-ci.org/rdalin82/MovieTheater.svg?branch=master)](https://travis-ci.org/rdalin82/MovieTheater.svg?branch=master)
-[![codecov](https://codecov.io/gh/rdalin82/MovieTheater/branch/master/graph/badge.svg)](https://codecov.io/gh/rdalin82/MovieTheater)
+
+Code Coverage: [![codecov](https://codecov.io/gh/rdalin82/MovieTheater/branch/master/graph/badge.svg)](https://codecov.io/gh/rdalin82/MovieTheater)
 
 # Movie Theater 
 
