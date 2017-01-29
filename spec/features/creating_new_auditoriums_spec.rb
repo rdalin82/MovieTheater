@@ -2,6 +2,10 @@ require 'rails_helper'
 
 
 describe "creating new auditoriums" do
+  before do 
+    visit "/" 
+    click_link "Auditoriums"
+  end
   it "goes to new Auditorium" do 
     visit "auditoriums"
     click_link "Create a new Auditorium"

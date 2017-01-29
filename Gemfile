@@ -4,7 +4,7 @@ ruby "2.2.1"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 gem 'pg'
-
+gem 'codecov', :require => false, :group => :test
 gem 'faker'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
